@@ -1,5 +1,17 @@
 {
   "openapi": "3.0.0",
+  "info": {
+    "title": "Simple Inventory API",
+    "description": "This is a simple API",
+    "contact": {
+      "email": "you@your-company.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
   "servers": [
     {
       "url": "https://virtserver.swaggerhub.com/William_Kamuyu/CBL/1.0.0",
