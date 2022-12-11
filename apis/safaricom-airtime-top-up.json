@@ -14,7 +14,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8000",
+      "url": "https://359c-41-90-61-249.eu.ngrok.io",
       "description": "CBL Dev API Gateway"
     }
   ],
