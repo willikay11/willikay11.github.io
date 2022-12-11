@@ -101,27 +101,32 @@
         "type": "object",
         "properties": {
           "amount": {
-            "type": "string"
+            "type": "string",
+            "example": "300"
           },
           "credit_account": {
             "type": "string",
-            "example": "254xxxxxxx15"
+            "example": "254700123151"
           },
           "transaction_type": {
             "type": "string",
             "example": "SAFACRICOM"
           },
           "reference_number": {
-            "type": "string"
+            "type": "string",
+            "example": "20GY1KKB2CSWL"
           },
           "timestamp": {
-            "type": "string"
+            "type": "string",
+            "example": "2021-01-29T00:54:08+03:00"
           },
           "currency": {
-            "type": "string"
+            "type": "string",
+            "example": "KES"
           },
           "client_id": {
-            "type": "string"
+            "type": "string",
+            "example": "OA9876543"
           }
         }
       },
@@ -148,13 +153,16 @@
             "example": "2021-01-29"
           },
           "debit_account": {
-            "type": "string"
+            "type": "string",
+            "example": "9012311313212"
           },
           "credit_account": {
-            "type": "string"
+            "type": "string",
+            "example": "25478120100"
           },
           "transaction_date": {
-            "type": "string"
+            "type": "string",
+            "example": "2021-01-29"
           }
         }
       }
