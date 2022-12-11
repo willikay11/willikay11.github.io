@@ -14,10 +14,6 @@
   },
   "servers": [
     {
-      "url": "https://virtserver.swaggerhub.com/William_Kamuyu/CBL/1.0.0",
-      "description": "SwaggerHub API Auto Mocking"
-    },
-    {
       "url": "http://localhost:8000",
       "description": "CBL Dev API Gateway"
     }
@@ -61,16 +57,24 @@
             }
           }
         ],
+        "requestBody": {
+          "description": "safaricomAirtimeTopUpRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/safaricomAirtimeTopUpRequest"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "search results matching criteria",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/InventoryItem"
-                  }
+                  "$ref": "#/components/schemas/safaricomAirtimeTopUpResponse"
                 }
               }
             }
@@ -84,52 +88,73 @@
   },
   "components": {
     "schemas": {
-      "InventoryItem": {
+      "safaricomAirtimeTopUpRequest": {
         "required": [
-          "id",
-          "manufacturer",
-          "name",
-          "releaseDate"
+          "amount",
+          "client_id",
+          "credit_account",
+          "currency",
+          "reference_number",
+          "timestamp",
+          "transaction_type"
         ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "example": "d290f1ee-6c54-4b01-90e6-d701748f0851"
+          "amount": {
+            "type": "string"
           },
-          "name": {
+          "credit_account": {
             "type": "string",
-            "example": "Widget Adapter"
+            "example": "254xxxxxxx15"
           },
-          "releaseDate": {
+          "transaction_type": {
             "type": "string",
-            "format": "date-time",
-            "example": "2016-08-29T09:12:33.001Z"
+            "example": "SAFACRICOM"
           },
-          "manufacturer": {
-            "$ref": "#/components/schemas/Manufacturer"
+          "reference_number": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "client_id": {
+            "type": "string"
           }
         }
       },
-      "Manufacturer": {
-        "required": [
-          "name"
-        ],
+      "safaricomAirtimeTopUpResponse": {
         "type": "object",
         "properties": {
-          "name": {
+          "response_code": {
             "type": "string",
-            "example": "ACME Corporation"
+            "example": "00"
           },
-          "homePage": {
+          "response_message": {
             "type": "string",
-            "format": "url",
-            "example": "https://www.acme-corp.com"
+            "example": "Request processed successfully"
           },
-          "phone": {
+          "transaction_reference": {
             "type": "string",
-            "example": "408-867-5309"
+            "example": "FT120GY1KKB2"
+          },
+          "reference_number": {
+            "type": "string"
+          },
+          "transaction_value_date": {
+            "type": "string",
+            "example": "2021-01-29"
+          },
+          "debit_account": {
+            "type": "string"
+          },
+          "credit_account": {
+            "type": "string"
+          },
+          "transaction_date": {
+            "type": "string"
           }
         }
       }
