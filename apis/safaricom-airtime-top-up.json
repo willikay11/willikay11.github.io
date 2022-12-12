@@ -18,7 +18,7 @@
       "description": "SwaggerHub API Auto Mocking"
     },
     {
-      "url": "https://ab83-41-90-61-249.eu.ngrok.io",
+      "url": "http://localhost:8000",
       "description": "CBL Dev API Gateway"
     }
   ],
