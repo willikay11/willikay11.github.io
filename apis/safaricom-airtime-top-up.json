@@ -14,7 +14,11 @@
   },
   "servers": [
     {
-      "url": "https://359c-41-90-61-249.eu.ngrok.io",
+      "url": "https://virtserver.swaggerhub.com/William_Kamuyu/CBL/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    },
+    {
+      "url": "https://ab83-41-90-61-249.eu.ngrok.io",
       "description": "CBL Dev API Gateway"
     }
   ],
@@ -58,7 +62,7 @@
           }
         ],
         "requestBody": {
-          "description": "safaricomAirtimeTopUpRequest",
+          "description": "Safaricom Airtime Top Up Request",
           "content": {
             "application/json": {
               "schema": {
@@ -74,7 +78,127 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/safaricomAirtimeTopUpResponse"
+                  "$ref": "#/components/schemas/airtimeTopUpResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/telkom-airtime-top-up": {
+      "post": {
+        "tags": [
+          "Airtime Top Up"
+        ],
+        "summary": "Telkom Airtime Topup",
+        "description": "Buy Telkom pre-paid airtime from your CBL account\n",
+        "operationId": "telkomAirtimeTopUp",
+        "parameters": [
+          {
+            "name": "x-project-id",
+            "in": "header",
+            "description": "pass the project id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "api-key",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Telkom Airtime Top Up Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/telkomAirtimeTopUpRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "search results matching criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/airtimeTopUpResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad input parameter"
+          }
+        }
+      }
+    },
+    "/airtel-airtime-top-up": {
+      "post": {
+        "tags": [
+          "Airtime Top Up"
+        ],
+        "summary": "Airtel Airtime Topup",
+        "description": "Buy Airtel pre-paid airtime from your CBL account\n",
+        "operationId": "airtelAirtimeTopUp",
+        "parameters": [
+          {
+            "name": "x-project-id",
+            "in": "header",
+            "description": "pass the project id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "api-key",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Airtel Airtime Top Up Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/airtelAirtimeTopUpRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "search results matching criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/airtimeTopUpResponse"
                 }
               }
             }
@@ -130,7 +254,91 @@
           }
         }
       },
-      "safaricomAirtimeTopUpResponse": {
+      "telkomAirtimeTopUpRequest": {
+        "required": [
+          "amount",
+          "client_id",
+          "credit_account",
+          "currency",
+          "reference_number",
+          "timestamp",
+          "transaction_type"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string",
+            "example": "300"
+          },
+          "credit_account": {
+            "type": "string",
+            "example": "254700123151"
+          },
+          "transaction_type": {
+            "type": "string",
+            "example": "TELKOM"
+          },
+          "reference_number": {
+            "type": "string",
+            "example": "20GY1KKB2CSWL"
+          },
+          "timestamp": {
+            "type": "string",
+            "example": "2021-01-29T00:54:08+03:00"
+          },
+          "currency": {
+            "type": "string",
+            "example": "KES"
+          },
+          "client_id": {
+            "type": "string",
+            "example": "OA9876543"
+          }
+        }
+      },
+      "airtelAirtimeTopUpRequest": {
+        "required": [
+          "amount",
+          "client_id",
+          "credit_account",
+          "currency",
+          "reference_number",
+          "timestamp",
+          "transaction_type"
+        ],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string",
+            "example": "300"
+          },
+          "credit_account": {
+            "type": "string",
+            "example": "254700123151"
+          },
+          "transaction_type": {
+            "type": "string",
+            "example": "AIRTEL"
+          },
+          "reference_number": {
+            "type": "string",
+            "example": "20GY1KKB2CSWL"
+          },
+          "timestamp": {
+            "type": "string",
+            "example": "2021-01-29T00:54:08+03:00"
+          },
+          "currency": {
+            "type": "string",
+            "example": "KES"
+          },
+          "client_id": {
+            "type": "string",
+            "example": "OA9876543"
+          }
+        }
+      },
+      "airtimeTopUpResponse": {
         "type": "object",
         "properties": {
           "response_code": {
@@ -146,7 +354,8 @@
             "example": "FT120GY1KKB2"
           },
           "reference_number": {
-            "type": "string"
+            "type": "string",
+            "example": "20GY1KKB2CSWL"
           },
           "transaction_value_date": {
             "type": "string",
